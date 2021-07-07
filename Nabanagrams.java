@@ -33,9 +33,11 @@ public class Nabanagrams {
 			String input = s.nextLine();
 			
 			if (input.equals("+")) {
-				enterGame(new Game(false), s);
+				game = new Game(false);
+				enterGame(game, s);
 			} else if (input.equals("*")) {
-				enterSandbox(new Game(true), s);				
+				game = new Game(true);
+				enterSandbox(game, s);
 			} else if (input.equals("!")) {
 				System.out.println("Bye!");
 				System.exit(0);
@@ -87,11 +89,10 @@ public class Nabanagrams {
 				System.out.println("Press 'enter' to flip a new letter");
 			}
 			System.out.println("Enter a word to steal it");
-			System.out.println("? for more options");
-			System.out.println();	
+			System.out.println("? for more options\n");
 			String input = s.nextLine().toUpperCase();
-			System.out.println("---------------------------------------");
-			System.out.println();
+			System.out.println("--------------------------------------\n");
+
 			if (input.equals("")) {
 				if (game.myTurn) {
 					List<String> newCombo = findCombo(game, null);
